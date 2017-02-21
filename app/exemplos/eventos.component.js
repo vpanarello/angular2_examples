@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var EventosComponent = (function () {
     function EventosComponent() {
+        this.isMouseOver = false;
     }
     EventosComponent.prototype.onClick = function () {
         alert('Execução de evento no Angular 2');
@@ -21,11 +22,16 @@ var EventosComponent = (function () {
     EventosComponent.prototype.onSave = function (valor) {
         this.conteudoArmazenado = valor;
     };
+    EventosComponent.prototype.onMouseSpan = function () {
+        this.isMouseOver = !this.isMouseOver;
+    };
     EventosComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'eventos-binding',
-            templateUrl: 'eventos.component.html'
+            templateUrl: 'eventos.component.html',
+            styles: ["\n        .destaque {\n            background-color: yellow;\n            font-weight: bold;\n        }\n    \n    \n    "
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], EventosComponent);
