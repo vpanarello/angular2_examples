@@ -1,10 +1,14 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+
+import { CursosServices } from './cursos.services';
 
 @Component({
-
+    moduleId: module.id,
     selector: 'curso',
-    template: `<p>Curso: {{nome}} </p>
-
+    /* 
+    template: `
+    
+    <p>Curso: {{nome}} </p>
     <p>Lista de disciplinas</p>
     <ul>
         <li *ngFor="let disciplina of disciplinas">
@@ -13,9 +17,17 @@ import {Component} from '@angular/core';
         
     </ul>
     `
+    */
+    templateUrl: 'cursos.component.html',
+    providers: [ CursosServices ]
 })
-export class  CursosComponent{
-    nome = 'MBA Java SOA'
-    disciplinas = ['Persistencia', 'Java Web', 'EJB 3.0', 'Design Responsive'];
+export class CursosComponent {
+    nome = 'MBA Java SOA';
+
+    disciplinas: string[];
+
+    constructor(cursosServices : CursosServices) {
+        this.disciplinas = cursosServices.getDisciplinas();
+    }
 }
 

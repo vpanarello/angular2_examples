@@ -1,0 +1,17 @@
+<section>
+    <article>
+        <h3>Event Binding</h3>
+        <div>
+            <button (click)="onClick()">Mostrar Mensagem</button><br>
+            <input type="text" 
+            (keyup)="onKeyUp($event)"
+            (keyup.enter)="onSave(campo.value)"
+            (blur)="onSave(campo.value)"
+            #campo
+            />
+
+            <div>Conteudo Atual: {{ conteudoAtual }}</div>
+            <div>Conteudo Armazenado: {{ conteudoArmazenado }}</div>
+        </div>
+    </article>
+</section>

@@ -9,17 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var cursos_services_1 = require('./cursos.services');
 var CursosComponent = (function () {
-    function CursosComponent() {
+    function CursosComponent(cursosServices) {
         this.nome = 'MBA Java SOA';
-        this.disciplinas = ['Persistencia', 'Java Web', 'EJB 3.0', 'Design Responsive'];
+        this.disciplinas = cursosServices.getDisciplinas();
     }
     CursosComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'curso',
-            template: "<p>Curso: {{nome}} </p>\n\n    <p>Lista de disciplinas</p>\n    <ul>\n        <li *ngFor=\"let disciplina of disciplinas\">\n            {{ disciplina }}\n        </li>\n        \n    </ul>\n    "
+            /*
+            template: `
+            
+            <p>Curso: {{nome}} </p>
+            <p>Lista de disciplinas</p>
+            <ul>
+                <li *ngFor="let disciplina of disciplinas">
+                    {{ disciplina }}
+                </li>
+                
+            </ul>
+            `
+            */
+            templateUrl: 'cursos.component.html',
+            providers: [cursos_services_1.CursosServices]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [cursos_services_1.CursosServices])
     ], CursosComponent);
     return CursosComponent;
 }());
